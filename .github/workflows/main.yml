@@ -15,7 +15,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and build
         run: |
-          npm install aws-sam-cli
+          npm install aws-sam-local
       - name: package
         run: |
           sam package --template-file template.yaml --output-template-file package.yaml --s3-bucket demo-sam-api
