@@ -13,6 +13,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: npm install and build
+        run: |
+          sam package --template-file template.yaml --output-template-file package.yaml --s3-bucket demo-sam-api
+        env:
+          CI: true
       - name: zip
         uses: montudor/action-zip@v0.1.0
         with:
